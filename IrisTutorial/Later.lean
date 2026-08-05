@@ -162,10 +162,8 @@ points-to predicate *later*, yet we can still perform the load.
 theorem later_points_to (l : Loc):
   ▷ (l ↦ hl_val(#5)) -∗
     WP hl(!#l + #1) {{v, ⌜v = hl_val(#6)⌝}} := by
-  iintro Hl
-  wp_bind !#l
-  iapply wp_load $$ Hl
-  iintro !> Hl
+  iintro _
+  wp_load
   wp_pure
   itrivial
 ```
